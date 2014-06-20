@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Titanic Survival Probability Guessing (TSPG) Game</title>
+	<meta name="description" content="Titanic Survival Probability Guessing (TSPG) Game">
+	<meta name="author" content="Prashant Ratnaparkhi">
+	<meta name="generator" content="slidify" />
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "assets/css/ribbons.css">
+  
+</head>
+<body style='display: none'>
+	<section class='slides layout-regular template-regular'>
+     <article class="" id="slide-1" style="background:;">
+  <h3>Titanic: Survival Probability Guessing (TSPG) Game App</h3>
+  <p>[Based on the data downloaded from <a href="http://www.kaggle.com">www.kaggle.com</a>]</p>
+
+<p>Use the App to:</p>
+
+<ul>
+<li>have fun, </li>
+<li>play a guessing game, </li>
+<li>and learn the facts of Titanic</li>
+</ul>
+
+</article>
+
+<article class="" id="slide-2" style="background:;">
+  <h3>TSPG Game App Highlights</h3>
+  <ul>
+<li><p>TSPG Game is based on the probability of survival of a passenger on Titanic. </p></li>
+<li><p>TSPG allows you to play and learn. It is very easy to play - select &amp; click</p></li>
+<li><p>Simply select a value of probability from the drop-down taking into 
+consideration the Passenger Details displayed. </p></li>
+<li><p>TSPG displays facts of Titanic disaster each time you play. These facts
+could be used to improve your chances of getting a correct answer.</p></li>
+<li><p>Number of consecutive correct guesses is updated and you may get a grand 
+prize after 1000 consecutive correct guesses. </p></li>
+</ul>
+
+</article>
+
+<article class="" id="slide-3" style="background:;">
+  <h3>How does TSPG game work?</h3>
+  <ul>
+<li><p>TSPG game challenges the player to guess the probability of survival,
+using the passenger details displayed on the screen. </p></li>
+<li><p>It compares its model-based-predition to player&#39;s guess and displays 
+the Result. </p></li>
+<li><p>TSPG App also displays facts about Titanic disaster and surviors under the 
+title - &#39;Did you know that:&#39;. These facts could be used to improve your guessing. </p></li>
+<li><p>TSPG App also has a running counter which displays consecutive correct 
+guesses made by a player.</p></li>
+<li><p>TSPG uses binary logistic regression for its prediction. More information regarding TSPG prediction model is on the last slide. </p></li>
+</ul>
+
+</article>
+
+<article class="" id="slide-4" style="background:;">
+  <h3>More information regarding Titanic survivors to help you play</h3>
+  <p>Rate of survival in children when compared to adults: </p>
+
+<pre><code class="r">data(&quot;Titanic&quot;)
+apply(Titanic, c(3, 4), sum)
+</code></pre>
+
+<pre><code>##        Survived
+## Age       No Yes
+##   Child   52  57
+##   Adult 1438 654
+</code></pre>
+
+<p>Rate of survival in women when compared to men:</p>
+
+<pre><code class="r">data(&quot;Titanic&quot;)
+apply(Titanic, c(2, 4), sum)
+</code></pre>
+
+<pre><code>##         Survived
+## Sex        No Yes
+##   Male   1364 367
+##   Female  126 344
+</code></pre>
+
+</article>
+
+<article class="" id="slide-5" style="background:;">
+  <h3>TSPG Prediction model</h3>
+  <ul>
+<li>TSPG uses the glm function to define the model</li>
+</ul>
+
+<p>fit1 &lt;- glm(Survived ~ Pclass + Sex + Age, data = tTrain, family = &quot;binomial&quot;)</p>
+
+<ul>
+<li><p>This model is trained using the data downloaded from <a href="http://www.kaggle.com">www.kaggle.com</a>
+[Note: The model needs to be tuned, cross validated, testsed and enhanced to 
+improve predictions.] </p></li>
+<li><p>TSPG uses the predict function to find out the survival probability.</p></li>
+</ul>
+
+<p>prediction = predict(fit1, newdata = inpVal, type = &quot;response&quot;)</p>
+
+</article>
+
+  </section>
+</body>
+  <!-- LOAD JAVASCRIPTS  -->
+	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+	</html>
