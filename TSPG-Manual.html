@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Titanic: Survival Probability Guessing (TSPG) Game</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Titanic: Survival Probability Guessing (TSPG) Game</h1>
+
+<p>Titanic sank on its maiden voyage on April 15, 1912, after hitting an iceberg. 
+Unfortunaely, Titanic did not have enough life boats to save all the people on board. Hence many individuals perished in this disaster. Many factors such as - social status (class), sex, age etc., decided the loading of the lifeboats and in-turn decided the
+probability of surival for a person. Being a passenger or a crew member, also 
+affected the chances of survival. </p>
+
+<p>TSPG Game is based on the probability of survival of a passenger on Titanic. 
+To play, simply select a value of probability from the drop-down taking into 
+consideration the Passenger Details displayed. </p>
+
+<p>How does TSPG game work?</p>
+
+<ul>
+<li><p>TSPG game challenges you to guess the probability of survival for a passenger 
+using the passenger details displayed on the screen. The passenger details 
+include - Class (1 indicates first or upper class, 2 - middle/standard class and 3 - lower class), Age and Sex. This App has a built-in prediction model to 
+calculate the survival probabilty. It compares its model-based-predition to your 
+guess and displays the Result. </p></li>
+<li><p>TSPG App also displays facts about Titanic disaster and surviors under the 
+title - &#39;Did you know that:&#39;. These facts could be used to improve your guessing. </p></li>
+<li><p>TSPG App also has a running counter which displays consecutive correct 
+guesses made by a player. </p></li>
+</ul>
+
+<p>Note on browser: 
+I have tested the App locally using Chrome browser. 
+On my machine, I could not get this App to work with Internet Explorer. There 
+is some IE version issue wrt to Shiny.The following R command can be used to 
+set browser. 
+options(browser = &ldquo;C:\Users\Administrator\AppData\Local\Google\Chrome\Application\chrome.exe&rdquo;)</p>
+
+</body>
+
+</html>
+
