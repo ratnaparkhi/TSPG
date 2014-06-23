@@ -17,13 +17,15 @@ shinyUI(fluidPage(
         fluidRow(
                 column(2, 
                        selectInput("yourGuess", label = h4("Guess Survival Probability in Percent"), 
-                                   choices = list("Retry", 0, 10, 20, 30, 40, 50, 60, 70, 80,
-                                                  90, 100), selected = 1),
+                                   choices = list(0, 10, 20, 30, 40, 50, 60, 70, 80,
+                                                  90, 100)),
                        br(),
-                       h4('Number of Consecutive Correct Guesses:'),
-                       textOutput('numCorr'),                                        
+                       #actionButton("playAgain", label = "Play Again"),
+                       
+                       #h4('Number of Consecutive Correct Guesses:'),
+                       #textOutput('numCorr'),                                        
                        h5('Instructions to play:'),
-                       h5('Select Survival Probability using Passenger Details')
+                       h5('Select Probability. To Play Again: Use browser refresh')
                        )
         ),
         
@@ -32,6 +34,6 @@ shinyUI(fluidPage(
                 textOutput('rtOrWrong'),
                 br(),
                 h4('Did you know that:'),
-                textOutput('retry')
+                textOutput('fact')
         )
 ))

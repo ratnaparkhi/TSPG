@@ -23,8 +23,10 @@ Titanic: Survival Probability Guessing (TSPG) Game App
 
 Use the App to:
 * have fun, 
-* play a guessing game, 
-* and learn the facts of Titanic
+* play a guessing game, and 
+* learn the facts of Titanic
+
+Stay tuned for upcoming version with score keeper and grand prizes 
 
 ---
 ## 
@@ -41,9 +43,6 @@ consideration the Passenger Details displayed.
 * TSPG displays facts of Titanic disaster each time you play. These facts
 could be used to improve your chances of getting a correct answer.
 
-* Number of consecutive correct guesses is updated and you may get a grand 
-prize after 1000 consecutive correct guesses. 
-
 ---
 
 ## 
@@ -57,9 +56,6 @@ the Result.
 
 * TSPG App also displays facts about Titanic disaster and surviors under the 
 title - 'Did you know that:'. These facts could be used to improve your guessing. 
-
-* TSPG App also has a running counter which displays consecutive correct 
-guesses made by a player.
 
 * TSPG uses binary logistic regression for its prediction. More information regarding TSPG prediction model is on the last slide. 
 
@@ -106,11 +102,11 @@ TSPG Prediction model
 fit1 <- glm(Survived ~ Pclass + Sex + Age, data = tTrain, family = "binomial")
 
 * This model is trained using the data downloaded from www.kaggle.com
-[Note: The model needs to be tuned, cross validated, testsed and enhanced to 
-improve predictions.] 
 
 * TSPG uses the predict function to find out the survival probability.
 
 prediction = predict(fit1, newdata = inpVal, type = "response")
+
+* Upcoming vesion to have improved/enhanced prediction model (tuned, cross validated, tested to make more accurate predictions.] 
 
 

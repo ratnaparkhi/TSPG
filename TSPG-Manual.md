@@ -21,9 +21,7 @@ guess and displays the Result.
 * TSPG App also displays facts about Titanic disaster and surviors under the 
 title - 'Did you know that:'. These facts could be used to improve your guessing. 
 
-* TSPG App also has a running counter which displays consecutive correct 
-guesses made by a player. 
-
+* To Play Again - You need use the Browser Refresh 
 
 Note on browser: 
 I have tested the App locally using Chrome browser. 

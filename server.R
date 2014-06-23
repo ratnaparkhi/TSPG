@@ -37,61 +37,39 @@ tFacts = c("On April 15, 1912, Titanic sank during her maiden voyage.",
 "1 - the number of children from First Class who perished.",
 "49 - the number of children from steerage who perished."
 )
-
-### predPercent = -1
-crGs = 0
-
+#crGs = 0
 shinyServer(
         function(input, output)
         {              
-                ## Predict the chance of survival 
-                ##startOrRetry <- reactive({      
-                ### ipClass = sample(pClass)[1]
-                ### iAge = sample(age)[1]
-                ### iSex = sample(sex)[1]
-                ### output$pclass <- renderText(ipClass)
-                ### output$sex <- renderText(iSex)
-                ### output$age <- renderText(iAge)               
-                ### inpVal = data.frame(Pclass = factor(ipClass), Sex = factor(iSex), Age = iAge)
-                ### prediction = predict(fit1, newdata = inpVal, type = "response")    
-                ### predPercent = round(prediction, 1) * 100
-                ### output$retry = renderText({sample(tFacts)[1]})
-                ##})                
-                
-                ##output$retry <- renderText({startOrRetry()})
-                
+                predPercent = 0
+                ipClass = sample(pClass)[1]
+                iAge = sample(age)[1]
+                iSex = sample(sex)[1]
+                output$pclass <- renderText(ipClass)
+                output$sex <- renderText(iSex)
+                output$age <- renderText(iAge)               
+                inpVal = data.frame(Pclass = factor(ipClass), Sex = factor(iSex), Age = iAge)
+                while (predPercent == 0) 
+                { 
+                        prediction = predict(fit1, newdata = inpVal, type = "response")    
+                        predPercent = round(prediction, 1) * 100
+                        output$fact = renderText({sample(tFacts)[1]})
+                }
                 result <- reactive({
-                        
-                        
-                        
-                        
-                        if (input$yourGuess == 'Retry') 
+                        if (as.numeric(input$yourGuess) == predPercent) 
                         {
-                                ipClass = sample(pClass)[1]
-                                iAge = sample(age)[1]
-                                iSex = sample(sex)[1]
-                                output$pclass <- renderText(ipClass)
-                                output$sex <- renderText(iSex)
-                                output$age <- renderText(iAge)               
-                                inpVal = data.frame(Pclass = factor(ipClass), Sex = factor(iSex), Age = iAge)
-                                prediction = predict(fit1, newdata = inpVal, type = "response")    
-                                predPercent = round(prediction, 1) * 100
-                                output$retry = renderText({sample(tFacts)[1]}) 
-                                output$numCorr = renderText(crGs)
-                                print(predPercent)
-                                "RETRY"
-                        }                
-                        else if (as.numeric(input$yourGuess) == predPercent) 
-                        {
-                                print(predPercent)
-                                output$retry = renderText({sample(tFacts)[1]})
-                                output$numCorr = renderText({crGs + 1})
-                                "Correct: Good job, play again"
+                                #print(predPercent)
+                                output$fact = renderText({sample(tFacts)[1]})
+                                #crGs = crGs + 1
+                                #output$numCorr = renderText({crGs})                               
+                                "Correct: Good job. To play again: Use browser refresh"
                         }
                         else 
                         {
-                                print(predPercent)
-                                output$retry = renderText({sample(tFacts)[1]})
+                                #print(predPercent)
+                                output$fact = renderText({sample(tFacts)[1]})
+                                #crGs = 0
+                                #output$numCorr = renderText({crGs})
                                 "Incorrect: Try again"  
                         }
                         
